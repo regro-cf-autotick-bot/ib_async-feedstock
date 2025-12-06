@@ -1,6 +1,6 @@
 {% set python_min = '3.10' %}
 {% set name = "ib_async" %}
-{% set version = "1.0.3" %}
+{% set version = "2.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ib_async-{{ version }}.tar.gz
-  sha256: 593691e1a8a1557ac053c601b70bf1527163a517cea3bbfdb2fadfc8a381d15e
+  sha256: 331c915645f49b46fdf42c9f06bbd56d264cab0cd24535eca2476f5d212ab113
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - eventkit
+    - aeventkit >=2.1.0
     - nest-asyncio
 
 test:
